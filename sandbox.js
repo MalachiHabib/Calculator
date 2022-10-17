@@ -1,10 +1,31 @@
 //calculator app
 
-var getButtons = document.getElementsByTagName("button");
+let getNums = document.getElementsByName("num");
+let getOps = document.getElementsByName("ops");
 
-for (var i = 0; i < getButtons.length; i++) {
-  getButtons[i].addEventListener("click", print);
+for (var i = 0; i < getNums.length; i++) {
+  getNums[i].addEventListener("click", function () {
+    if (document.getElementById("result").innerText != 0) {
+      document.getElementById("result").innerText += this.innerText;
+    } else {
+      document.getElementById("result").innerText = this.innerText;
+    }
+  });
 }
-function print() {}
 
-document.getElementById("result").innerText = "test";
+for (var i = 0; i < getOps.length; i++) {
+  getOps[i].addEventListener("click", function () {
+    document.getElementById("result").innerText += this.innerText;
+    //clear calc
+    if (document.getElementById("result").innerText.endsWith("C")) {
+      document.getElementById("result").innerText = "0";
+    }
+  });
+}
+
+function caclulate(param1, op, param2) {
+  if (op == "+") {
+  }
+}
+
+function display(result) {}
